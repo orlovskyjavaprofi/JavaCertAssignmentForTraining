@@ -1,0 +1,28 @@
+//Here is only one exampe taken from VCE pool
+
+abstract class Vehicle{ public int speed() { return 0;} }
+class Car extends Vehicle { public int speed() { return 60;}}
+class RaceCar extends Car { public int speed() { return 150;}}
+
+RaceCar racer = new RaceCar();
+Car car = new RaceCar();
+Vehicle vehicle = new RaceCar();
+System.out.println(racer.speed() + ", " + car.speed() + ", "+vehicle.speed());
+// What is the result?
+// A 0, 0, 0
+// B 150,60,0
+// C Compilation fails
+// D 150,150,150
+// E An exception thrown at runtime
+
+//Think first about the answer!
+//////
+
+
+
+
+//This is D
+// so what exactly happening in the code
+// RacerCar Object Method speed returns 150, then the next  Car reference variable with RacerCar Object with method speed acces the method of
+// RacerCar so one again we get 150, the same happens with a reference of Vehicle it has once again a RacerCar Object, so it must goes as follows
+// If you acces a Super reference with Object of Subclass , then the Methods of Subclass would be called first!
